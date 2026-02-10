@@ -157,6 +157,7 @@ html[data-theme="dark"] .mesh-bg::before {
     font-size: 0.85rem;
     cursor: pointer;
     transition: var(--transition);
+    gap: 0.4rem;
 }
 
 .theme-toggle:hover { border-color: var(--amber); }
@@ -165,6 +166,16 @@ html[data-theme="dark"] .theme-toggle {
     background: rgba(18, 18, 18, 0.7);
     border-color: rgba(255, 255, 255, 0.18);
 }
+
+.theme-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+}
+
+.theme-moon { display: none; }
+html[data-theme="dark"] .theme-sun { display: none; }
+html[data-theme="dark"] .theme-moon { display: inline-flex; }
 
 /* Utilities */
 .container { max-width: 1200px; margin: 0 auto; padding: 6.5rem 5%; }
