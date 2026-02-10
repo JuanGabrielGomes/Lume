@@ -173,9 +173,10 @@ html[data-theme="dark"] .theme-toggle {
     height: 18px;
 }
 
-.theme-moon { display: none; }
-html[data-theme="dark"] .theme-sun { display: none; }
-html[data-theme="dark"] .theme-moon { display: inline-flex; }
+.theme-moon { display: inline-flex; }
+.theme-sun { display: none; }
+html[data-theme="dark"] .theme-sun { display: inline-flex; }
+html[data-theme="dark"] .theme-moon { display: none; }
 
 /* Utilities */
 .container { max-width: 1200px; margin: 0 auto; padding: 6.5rem 5%; }
