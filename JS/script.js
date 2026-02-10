@@ -46,3 +46,39 @@ if (navToggle && navLinks) {
         });
     });
 }
+
+// Theme toggle
+const themeToggle = document.querySelector(".theme-toggle");
+const themeLabel = document.querySelector(".theme-label");
+const root = document.documentElement;
+const storedTheme = localStorage.getItem("theme");
+const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+function setTheme(theme, persist) {
+    root.setAttribute("data-theme", theme);
+    if (themeLabel) {
+        themeLabel.textContent = theme === "dark" ? "Modo claro" : "Modo escuro";
+    }
+    if (persist) {
+        localStorage.setItem("theme", theme);
+    }
+}
+
+if (storedTheme) {
+    setTheme(storedTheme, false);
+} else {
+    setTheme(mediaQuery.matches ? "dark" : "light", false);
+}
+
+if (!storedTheme) {
+    mediaQuery.addEventListener("change", (event) => {
+        setTheme(event.matches ? "dark" : "light", false);
+    });
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        setTheme(nextTheme, true);
+    });
+}
